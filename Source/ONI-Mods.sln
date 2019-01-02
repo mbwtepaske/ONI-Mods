@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeyserTuning", "GeyserTuning\GeyserTuning.csproj", "{92BA818A-A5E0-46B3-842F-9A1DAC3E0386}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CritterTuning", "CritterTuning\CritterTuning.csproj", "{652571E3-0C09-46BF-921C-DD04508814AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{4B097C17-8C74-4376-B551-C5B9353E303C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92BA818A-A5E0-46B3-842F-9A1DAC3E0386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92BA818A-A5E0-46B3-842F-9A1DAC3E0386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92BA818A-A5E0-46B3-842F-9A1DAC3E0386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92BA818A-A5E0-46B3-842F-9A1DAC3E0386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{652571E3-0C09-46BF-921C-DD04508814AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{652571E3-0C09-46BF-921C-DD04508814AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{652571E3-0C09-46BF-921C-DD04508814AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{652571E3-0C09-46BF-921C-DD04508814AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B097C17-8C74-4376-B551-C5B9353E303C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B097C17-8C74-4376-B551-C5B9353E303C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B097C17-8C74-4376-B551-C5B9353E303C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B097C17-8C74-4376-B551-C5B9353E303C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6CEFCEE4-36D3-49A3-89B4-2B4AA89212FA}
+	EndGlobalSection
+EndGlobal
