@@ -1,7 +1,39 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>$(ONI)\OxygenNotIncluded_Data\Managed\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(ONI)\OxygenNotIncluded_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>$(ONI)\OxygenNotIncluded_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(ONI)\OxygenNotIncluded_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(ONI)\OxygenNotIncluded_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="Build">
+    <ItemGroup>
+      <OutputFiles Include="$(TargetDir)$(TargetName).dll" />
+      <OutputFiles Include="$(TargetDir)$(TargetName).pdb" Condition="'$(Configuration)' == 'Debug'" />
+    </ItemGroup>
+
+    <PropertyGroup>
+      <ModDirectory>$(OneDriveConsumer)\Documents\Klei\OxygenNotIncluded\Mods\dev\$(TargetName)</ModDirectory>
+    </PropertyGroup>
+
+    <MakeDir Directories="$(ONI)\Mods\Config" />
+    <Copy SourceFiles="@(OutputFiles)" DestinationFolder="$(ModDirectory)" />
+  </Target>
 
 </Project>

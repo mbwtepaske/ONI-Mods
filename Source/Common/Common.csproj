@@ -5,4 +5,13 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <OutputFiles Include="$(TargetDir)Common.dll" />
+    <OutputFiles Include="$(TargetDir)Common.pdb" Condition="'$(Configuration)' == 'Debug'" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Copy SourceFiles="@(OutputFiles)" DestinationFolder="$(ONI)\Mods" />
+  </Target>
+
 </Project>

@@ -1,6 +1,6 @@
 ﻿using Common;
 
-namespace GeyserTuning.Config
+namespace GeyserTuning
 {
   public sealed class GeyserTypeConfig
   {
