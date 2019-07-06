@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="AlgaeHabitatConfigPatch.cs" />
+    <None Remove="LumosMaxima.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="AlgaeHabitatConfigPatch.cs" />
+    <Content Include="LumosMaxima.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +21,9 @@
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>$(ONI)\OxygenNotIncluded_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(ONI)\OxygenNotIncluded_Data\Managed\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>$(ONI)\OxygenNotIncluded_Data\Managed\UnityEngine.dll</HintPath>
