@@ -1,20 +1,20 @@
 ﻿{
   "LuminosityBase": 900,
   "LuminosityStep": 300,
-
-  // Lux = LuminosityBase + LuminosityStep * Tier
   "Tiers": {
-    "LightBugBaby": 0,
-    "LightBug": 1,
-    "LightBugOrangeBaby": 1,
-    "LightBugOrange": 2,
-    "LightBugPurpleBaby": 2,
-    "LightBugPurple": 3,
-    "LightBugPinkBaby": 3,
-    "LightBugPink": 4,
-    "LightBugBlueBaby": 4,
-    "LightBugBlue": 5,
-    "LightBugCrystalBaby": 6,
-    "LightBugCrystal": 7
+    "LightBugBaby":         0,
+    "LightBug":             1,
+    "LightBugOrangeBaby":   1,
+    "LightBugOrange":       2,
+    "LightBugPurpleBaby":   2,
+    "LightBugPurple":       3,
+    "LightBugPinkBaby":     3,
+    "LightBugPink":         4,
+    "LightBugBlueBaby":     4,
+    "LightBugBlue":         5,
+    "LightBugBlackBaby":   -6, 
+    "LightBugBlack":       -6, 
+    "LightBugCrystalBaby":  6,
+    "LightBugCrystal":      7
   }
 }

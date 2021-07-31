@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 
 namespace BuildingEnhancements
 {
@@ -13,8 +13,6 @@ namespace BuildingEnhancements
       {
         powerTinkerEffect.duration *= 4;
       }
-
-      //File.AppendAllText(@"E:\Steam\steamapps\common\OxygenNotIncluded\Mods\Test.log", $"PowerTinkerEffectPatch = {powerTinkerEffect?.duration ?? -1}");
     }
   }
 }

@@ -1,24 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-
-using Harmony;
+﻿using HarmonyLib;
 
 namespace BuildingEnhancements
 {
-  [HarmonyPatch(typeof(PlantableSeed), nameof(PlantableSeed.Sim200ms))]
-  public static class PlantableSeedTimingPatch
-  {
-    [HarmonyPrefix]
-    public static void Fix(PlantableSeed __instance)
-    {
-      if (__instance.timeUntilSelfPlant > 60)
-      {
-        __instance.timeUntilSelfPlant = 60;
-      }
-    }
-  }
-
   [HarmonyPatch(typeof(PlantableSeed), "TestSuitableGround")]
   public static class PlantableSeedTestingPatch
   {
@@ -29,7 +12,12 @@ namespace BuildingEnhancements
       
       if (!__result)
       {
-        __result = Grid.IsValidCell(cell) && !Grid.Foundation[Grid.CellBelow(cell)]
+        var cellBelow = Grid.CellBelow(cell);
+
+        __result = Grid.IsValidCell(cell) 
+          && Grid.IsValidCell(cellBelow) 
+          && !Grid.Foundation[cellBelow]
+          && Grid.Element[cellBelow].hardness < 150
           && (prefab.GetComponent<DrowningMonitor>()?.IsCellSafe(cell) ?? true)
           && (prefab.GetComponent<EntombVulnerable>()?.IsCellSafe(cell) ?? true)
           && (prefab.GetComponent<OccupyArea>()?.CanOccupyArea(cell, ObjectLayer.Building) ?? true)

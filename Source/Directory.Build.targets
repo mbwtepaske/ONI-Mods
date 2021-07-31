@@ -1,0 +1,13 @@
+﻿<Project>
+
+  <ItemGroup>
+    <Artifact Include="$(SolutionDir)mod_info.yaml" />
+    <Artifact Include="$(TargetDir)$(TargetName).dll" />
+  </ItemGroup>
+
+  <Target Name="CopyArtifacts" AfterTargets="Build">
+    <Copy SourceFiles="@(Artifact)" DestinationFolder="$(LocalModificationDirectory)$(TargetName)" />
+
+    <Message Text="Artifacts: @(Artifact) -> $(LocalModificationDirectory)$(ProjectName)" Importance="high" />
+  </Target>
+</Project>

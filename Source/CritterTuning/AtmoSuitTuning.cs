@@ -1,4 +1,5 @@
-﻿using Harmony;
+﻿using HarmonyLib;
+using TUNING;
 
 namespace CritterTuning
 {
@@ -9,7 +10,7 @@ namespace CritterTuning
     {
       foreach (var modifier in __result.AttributeModifiers)
       {
-        if (modifier.AttributeId == TUNING.EQUIPMENT.ATTRIBUTE_MOD_IDS.ATHLETICS)
+        if (modifier.AttributeId == EQUIPMENT.ATTRIBUTE_MOD_IDS.ATHLETICS)
         {
           modifier.SetValue(-2);
         }

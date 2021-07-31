@@ -1,46 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
-  </PropertyGroup>
-
   <ItemGroup>
     <Compile Remove="AlgaeHabitatConfigPatch.cs" />
+    <Compile Remove="GasReservoirConfigPatch.cs" />
+    <Compile Remove="LiquidReservoirConfigPatch.cs" />
+    <Compile Remove="PlantableSeedPatch.cs" />
+    <Compile Remove="PowerRebalance.cs" />
+    <Compile Remove="PrimaryElementPatch.cs" />
+    <Compile Remove="RefrigeratorConfigPatch.cs" />
+    <Compile Remove="ReservoirConfigPatch.cs" />
+    <Compile Remove="StorageCompactor.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="AlgaeHabitatConfigPatch.cs" />
+    <None Include="GasReservoirConfigPatch.cs" />
+    <None Include="LiquidReservoirConfigPatch.cs" />
+    <None Include="PlantableSeedPatch.cs" />
+    <None Include="PowerRebalance.cs" />
+    <None Include="PrimaryElementPatch.cs" />
+    <None Include="RefrigeratorConfigPatch.cs" />
+    <None Include="ReservoirConfigPatch.cs" />
+    <None Include="StorageCompactor.cs" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>$(ONI)\OxygenNotIncluded_Data\Managed\0Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>$(ONI)\OxygenNotIncluded_Data\Managed\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>$(ONI)\OxygenNotIncluded_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>$(ONI)\OxygenNotIncluded_Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(ONI)\OxygenNotIncluded_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <Target Name="PostBuild" AfterTargets="Build">
-    <ItemGroup>
-      <OutputFiles Include="$(TargetDir)$(TargetName).dll" />
-      <OutputFiles Include="$(TargetDir)$(TargetName).pdb" Condition="'$(Configuration)' == 'Debug'" />
-    </ItemGroup>
-
-    <PropertyGroup>
-      <ModDirectory>$(OneDriveConsumer)\Documents\Klei\OxygenNotIncluded\Mods\dev\$(TargetName)</ModDirectory>
-    </PropertyGroup>
-
-    <MakeDir Directories="$(ModDirectory)" />
-    <Copy SourceFiles="@(OutputFiles)" DestinationFolder="$(ModDirectory)" />
-  </Target>
 </Project>

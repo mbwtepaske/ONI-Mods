@@ -1,0 +1,22 @@
+﻿<Project>
+  <PropertyGroup>
+    <Define>DLC1</Define>
+    <GameDirectory>D:\Steam\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\</GameDirectory>
+    <LangVersion>Latest</LangVersion>
+    <LocalModificationDirectory>$(UserProfile)\Documents\Klei\OxygenNotIncluded\mods\local\</LocalModificationDirectory>
+    <TargetFramework>net471</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="0Harmony"                   HintPath="$(GameDirectory)0Harmony.dll" />
+    <Reference Include="Assembly-CSharp"            HintPath="$(GameDirectory)Assembly-CSharp.dll" />
+    <Reference Include="Assembly-CSharp-firstpass"  HintPath="$(GameDirectory)Assembly-CSharp-firstpass.dll" />
+    <Reference Include="NewtonSoft.Json"            HintPath="$(GameDirectory)NewtonSoft.Json.dll" />
+    <Reference Include="UnityEngine"                HintPath="$(GameDirectory)UnityEngine.dll" />
+    <Reference Include="UnityEngine.CoreModule"     HintPath="$(GameDirectory)UnityEngine.CoreModule.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Artifact Include="$(SolutionDir)mod_info.yaml" />
+  </ItemGroup>
+</Project>

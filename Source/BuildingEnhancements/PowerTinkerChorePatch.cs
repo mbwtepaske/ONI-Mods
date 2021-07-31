@@ -1,10 +1,7 @@
-﻿using System.IO;
-
-using Harmony;
+﻿using HarmonyLib;
 
 namespace BuildingEnhancements
 {
-
   [HarmonyPatch(typeof(Tinkerable), nameof(Tinkerable.MakePowerTinkerable))]
   public static class PowerTinkerChorePatch
   {

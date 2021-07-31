@@ -1,60 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-using Harmony;
-
-using Newtonsoft.Json;
+using HarmonyLib;
 
 using UnityEngine;
 
 namespace LumosMaxima
 {
-  public sealed class Configuration
-  {
-    public static readonly Configuration Default = new Configuration
-    {
-      LuminosityBase = 1200,
-      LuminosityStep = 300,
-      Tiers = new Dictionary<string, int>
-      {
-        [LightBugBabyConfig.ID]        = 0,
-        [LightBugConfig.ID]            = 1,
-        [LightBugOrangeBabyConfig.ID]  = 1,
-        [LightBugOrangeConfig.ID]      = 2,
-        [LightBugPurpleBabyConfig.ID]  = 2,
-        [LightBugPurpleConfig.ID]      = 3,
-        [LightBugPinkBabyConfig.ID]    = 3,
-        [LightBugPinkConfig.ID]        = 4,
-        [LightBugBlueBabyConfig.ID]    = 4,
-        [LightBugBlueConfig.ID]        = 5,
-        [LightBugCrystalBabyConfig.ID] = 6,
-        [LightBugCrystalConfig.ID]     = 7,
-      }
-    };
-
-    public int LuminosityBase
-    {
-      get;
-      set;
-    }
-
-    public int LuminosityStep
-    {
-      get;
-      set;
-    }
-
-    public Dictionary<string, int> Tiers
-    {
-      get;
-      set;
-    }
-
-    public static Configuration LoadConfiguration(Stream stream) => JsonSerializer.CreateDefault().Deserialize<Configuration>(new JsonTextReader(new StreamReader(stream)));
-  }
-
   [HarmonyPatch(typeof(BaseLightBugConfig), nameof(BaseLightBugConfig.BaseLightBug))]
   public static class BaseLightBugConfigPatch
   {
@@ -63,8 +16,8 @@ namespace LumosMaxima
     [HarmonyPrepare]
     public static void LoadConfiguration()
     {
-      var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetCallingAssembly().Location), "LumosMaxima.json");
-
+      var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "LumosMaxima.json");
+      
       try
       {
         if (File.Exists(filePath))
@@ -77,11 +30,13 @@ namespace LumosMaxima
       }
       catch (Exception exception)
       {
-        Console.Out.Write(exception.ToString());
+        Console.Out.WriteLine(exception.ToString());
       }
 
       if (Configuration == null)
       {
+        Debug.Log($"{filePath} did not exist or could not be loaded, using default configuration instead.");
+
         Configuration = Configuration.Default;
       }
     }
